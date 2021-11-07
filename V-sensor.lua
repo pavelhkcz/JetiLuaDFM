@@ -269,12 +269,9 @@ local function loop()
   env.p2 = value2 or 0 
   
   if conditionChanged == true then
-     print("condition: ", condition)
-    print("load: return "..condition,"","t",env)
     chunk, err = load("return "..condition,"","t",env)
     conditionChanged = false
   end
-  
   if(chunk) then
     status,result = pcall(chunk)
     result = result or ""
